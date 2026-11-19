@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar-EG" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ثبّت كلمة وخلي القصاصات تتحرك حواليها. أداة مصرية مجانية لتأثير تثبيت الكلمة." />
+  <meta name="theme-color" content="#fffaf0" />
+  <title>كلمتك ثابتة — تأثير القصّات المصري</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="كلمتك ثابتة - الرئيسية"><span class="brand-mark">ك</span><span>كلمتك <b>ثابتة</b></span></a>
+    <nav aria-label="التنقل الرئيسي">
+      <a href="#examples">أمثلة</a><a href="#how">إزاي بيشتغل؟</a><a href="#faq">أسئلة شائعة</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">تأثير القصّات بالمصري</p>
+        <h1>ثبّت <span class="marker">كلمتك</span><br />وخلي الدنيا تتحرك حواليها.</h1>
+        <p class="lead">اكتب جملة، اختار الكلمة اللي عايز تركز عليها، واعمل فيديو جاهز للسوشيال من غير برنامج مونتاج.</p>
+      </div>
+
+      <section class="editor-card" aria-labelledby="editor-title">
+        <div class="editor-head"><div><p class="eyebrow">المحرر</p><h2 id="editor-title">اعمل الفيديو بتاعك</h2></div><span class="privacy-pill">بيشتغل على جهازك</span></div>
+        <div class="input-grid">
+          <label>الجملة أو الفكرة
+            <textarea id="phrase" maxlength="120" rows="2" placeholder="مثال: أسعار البنزين رجعت تتكلم تاني">أسعار البنزين رجعت تتكلم تاني</textarea>
+            <small><span id="phraseCount">0</span>/120</small>
+          </label>
+          <label>الكلمة اللي هنركز عليها
+            <input id="keyword" maxlength="32" value="البنزين" placeholder="اكتب كلمة من الجملة" />
+            <small>خليها موجودة جوه الجملة</small>
+          </label>
+        </div>
+        <div id="validation" class="validation" role="status"></div>
+        <button id="generate" class="primary-button"><span class="button-label">اعمل الفيديو</span><span class="spinner" aria-hidden="true"></span><span aria-hidden="true">←</span></button>
+        <div class="trust-row"><span>✓ من غير تسجيل</span><span>✓ من غير علامة مائية</span><span>✓ النص مش بيترفع</span></div>
+
+        <div id="controls" class="controls hidden">
+          <div class="control-block"><span class="control-label">شكل الفيديو</span><div class="segmented" role="radiogroup" aria-label="شكل الفيديو">
+            <button data-ratio="9:16" class="active">طولي<br /><small>9:16</small></button><button data-ratio="1:1">مربع<br /><small>1:1</small></button><button data-ratio="16:9">عرضي<br /><small>16:9</small></button>
+          </div></div>
+          <div class="control-row">
+            <label>صيغة التنزيل<select id="format"><option value="webm">WebM — شغال على أغلب المتصفحات</option><option value="mp4">MP4 — لو المتصفح بيدعمه</option></select></label>
+            <label>الصوت<select id="sound"><option value="paper">تقليب ورق</option><option value="camera">صوت كاميرا</option><option value="none">من غير صوت</option></select></label>
+          </div>
+          <button id="advancedToggle" class="advanced-toggle" aria-expanded="false">إعدادات متقدمة <span>⌄</span></button>
+          <div id="advanced" class="advanced-panel">
+            <label>سرعة القصّات <output id="cpsValue">12</output> قصّة/ثانية<input id="cps" type="range" min="6" max="20" value="12" /></label>
+            <label>الزووم <output id="zoomValue">1.5</output>×<input id="zoom" type="range" min="1" max="2.5" step="0.1" value="1.5" /></label>
+            <label>الطمس حوالين الكلمة <output id="blurValue">1.0</output><input id="blur" type="range" min="0" max="2" step="0.1" value="1" /></label>
+          </div>
+          <div id="progressArea" class="progress-area hidden"><div class="progress-copy"><span id="progressText">بنرسم القصّات…</span><span id="progressPct">0%</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+          <div id="result" class="result hidden"><video id="preview" controls playsinline></video><div class="result-actions"><a id="download" class="primary-button" download="kelmetak-thabta.webm">نزّل الفيديو ←</a><button id="regenerate" class="secondary-button">جرّب نسخة تانية</button></div><p id="resultNote">الفيديو اتعمل على جهازك ومفيهوش علامة مائية.</p></div>
+        </div>
+      </section>
+      <p class="generated-note"><span class="dot"></span> تجربة مجانية — أول فيديو في ثواني</p>
+    </section>
+
+    <section id="examples" class="section container"><div class="section-heading"><p class="eyebrow">جرّب أمثلة جاهزة</p><h2>اختار فكرة وابدأ على طول.</h2></div><div class="example-grid">
+      <button class="example-card" data-phrase="أسعار البنزين رجعت تتكلم تاني" data-keyword="البنزين"><span>01</span><strong>أسعار البنزين رجعت تتكلم تاني</strong><small>جرّب المثال ←</small></button>
+      <button class="example-card" data-phrase="الماتش قلب في آخر دقيقة" data-keyword="آخر دقيقة"><span>02</span><strong>الماتش قلب في آخر دقيقة</strong><small>جرّب المثال ←</small></button>
+      <button class="example-card" data-phrase="الجو حر بس المصيف مستني" data-keyword="المصيف"><span>03</span><strong>الجو حر بس المصيف مستني</strong><small>جرّب المثال ←</small></button>
+    </div></section>
+
+    <section id="how" class="section soft-section"><div class="container"><div class="section-heading"><p class="eyebrow">ثلاث خطوات وخلاص</p><h2>مش محتاج تبقى مونتير.</h2></div><div class="steps"><article><span>01</span><h3>اكتب جملة</h3><p>حط الفكرة اللي في دماغك، بالعربي المصري أو بأي أسلوب يناسبك.</p></article><article><span>02</span><h3>حدد كلمة</h3><p>الكلمة دي هتفضل ثابتة في نفس المكان والقصاصات هتتغير حواليها.</p></article><article><span>03</span><h3>اعمل ونزّل</h3><p>الرندر بيحصل جوه المتصفح، وبعدها نزّل الفيديو واستخدمه على طول.</p></article></div></div></section>
+
+    <section class="formats section container"><div><p class="eyebrow">جاهز للسوشيال</p><h2>اعمل المقاس المناسب من أول مرة.</h2><p>طولي للريلز والتيك توك والشورتس، مربع للبوستات، أو عرضي لليوتيوب.</p></div><div class="format-cards"><div><b>9:16</b><span>ريلز · تيك توك · Shorts</span></div><div><b>1:1</b><span>بوستات السوشيال</span></div><div><b>16:9</b><span>يوتيوب والشاشات</span></div></div></section>
+
+    <section id="faq" class="section faq-section"><div class="container narrow"><div class="section-heading"><p class="eyebrow">أسئلة شائعة</p><h2>كل اللي محتاج تعرفه.</h2></div><details open><summary>الفيديو بيتعمل فين؟</summary><p>جوه المتصفح على جهازك. النص مش بيتبعت لسيرفر، ومفيش حساب مطلوب.</p></details><details><summary>هل العربي شغال بجد؟</summary><p>أيوه. الصفحة RTL، والخطوط عربية، والقوالب والبحث والقصّات متصممين عشان العربي المصري والنص المختلط.</p></details><details><summary>أنزّل MP4 ولا WebM؟</summary><p>اختار MP4 لو المتصفح بيدعمه. لو مش مدعوم، استخدم WebM؛ تقدر تحوله بعدين بأي محرر فيديو.</p></details><details><summary>أقدر أستخدم الفيديو تجاريًا؟</summary><p>أيوه، الفيديو اللي بتعمله بتاعك. راجع ترخيص أي صوت أو مادة تضيفها بنفسك.</p></details></div></section>
+  </main>
+
+  <footer class="footer container"><div class="brand"><span class="brand-mark">ك</span><span>كلمتك <b>ثابتة</b></span></div><p>تأثير تثبيت الكلمة بالمصري — مجاني وبيشتغل من المتصفح.</p><a href="#top">اطلع لفوق ↑</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>
