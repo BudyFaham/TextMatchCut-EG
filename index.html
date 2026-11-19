@@ -24,20 +24,17 @@
       <div class="hero-copy">
         <p class="eyebrow">تأثير القصّات بالمصري</p>
         <h1>ثبّت <span class="marker">كلمتك</span><br />وخلي الدنيا تتحرك حواليها.</h1>
-        <p class="lead">اكتب جملة، اختار الكلمة اللي عايز تركز عليها، واعمل فيديو جاهز للسوشيال من غير برنامج مونتاج.</p>
+        <p class="lead">اكتب كلمة واحدة بس، وإحنا هنركّب حواليها جمل مصرية ونطلع لك فيديو جاهز للسوشيال من غير برنامج مونتاج.</p>
       </div>
 
       <section class="editor-card" aria-labelledby="editor-title">
         <div class="editor-head"><div><p class="eyebrow">المحرر</p><h2 id="editor-title">اعمل الفيديو بتاعك</h2></div><span class="privacy-pill">بيشتغل على جهازك</span></div>
-        <div class="input-grid">
-          <label>الجملة أو الفكرة
-            <textarea id="phrase" maxlength="120" rows="2" placeholder="مثال: أسعار البنزين رجعت تتكلم تاني">أسعار البنزين رجعت تتكلم تاني</textarea>
-            <small><span id="phraseCount">0</span>/120</small>
+        <div class="input-grid single-input">
+          <label>اكتب الكلمة اللي عايز تثبتها
+            <input id="keyword" maxlength="32" value="البنزين" placeholder="مثال: البنزين" autocomplete="off" />
+            <small>الموقع هيعمل حواليها جمل مصرية تلقائيًا</small>
           </label>
-          <label>الكلمة اللي هنركز عليها
-            <input id="keyword" maxlength="32" value="البنزين" placeholder="اكتب كلمة من الجملة" />
-            <small>خليها موجودة جوه الجملة</small>
-          </label>
+          <p class="auto-copy">مثال الجملة: <strong id="autoPhrase">البنزين رجع يظهر تاني، ومحدش عارف ليه</strong></p>
         </div>
         <div id="validation" class="validation" role="status"></div>
         <button id="generate" class="primary-button"><span class="button-label">اعمل الفيديو</span><span class="spinner" aria-hidden="true"></span><span aria-hidden="true">←</span></button>
@@ -70,7 +67,7 @@
       <button class="example-card" data-phrase="الجو حر بس المصيف مستني" data-keyword="المصيف"><span>03</span><strong>الجو حر بس المصيف مستني</strong><small>جرّب المثال ←</small></button>
     </div></section>
 
-    <section id="how" class="section soft-section"><div class="container"><div class="section-heading"><p class="eyebrow">ثلاث خطوات وخلاص</p><h2>مش محتاج تبقى مونتير.</h2></div><div class="steps"><article><span>01</span><h3>اكتب جملة</h3><p>حط الفكرة اللي في دماغك، بالعربي المصري أو بأي أسلوب يناسبك.</p></article><article><span>02</span><h3>حدد كلمة</h3><p>الكلمة دي هتفضل ثابتة في نفس المكان والقصاصات هتتغير حواليها.</p></article><article><span>03</span><h3>اعمل ونزّل</h3><p>الرندر بيحصل جوه المتصفح، وبعدها نزّل الفيديو واستخدمه على طول.</p></article></div></div></section>
+    <section id="how" class="section soft-section"><div class="container"><div class="section-heading"><p class="eyebrow">ثلاث خطوات وخلاص</p><h2>مش محتاج تبقى مونتير.</h2></div><div class="steps"><article><span>01</span><h3>اكتب كلمة</h3><p>حط الكلمة اللي عايز تثبتها، بالعربي المصري أو بأي لغة تناسبك.</p></article><article><span>02</span><h3>إحنا نركّب الجمل</h3><p>الموقع بيعمل حواليها جمل مختلفة، والكلمة بتفضل ثابتة في نفس المكان.</p></article><article><span>03</span><h3>اعمل ونزّل</h3><p>الرندر بيحصل جوه المتصفح، وبعدها نزّل الفيديو واستخدمه على طول.</p></article></div></div></section>
 
     <section class="formats section container"><div><p class="eyebrow">جاهز للسوشيال</p><h2>اعمل المقاس المناسب من أول مرة.</h2><p>طولي للريلز والتيك توك والشورتس، مربع للبوستات، أو عرضي لليوتيوب.</p></div><div class="format-cards"><div><b>9:16</b><span>ريلز · تيك توك · Shorts</span></div><div><b>1:1</b><span>بوستات السوشيال</span></div><div><b>16:9</b><span>يوتيوب والشاشات</span></div></div></section>
 
